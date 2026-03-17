@@ -90,6 +90,26 @@ export default {
     },
     handleImageError(e) {
       console.error('图片加载失败:', e.detail.errMsg)
+    },
+    /**
+     * 分享到微信好友
+     */
+    onShareAppMessage() {
+      return {
+        title: '巴黎长颈鹿 - 精彩推荐',
+        path: '/pages/index/index',
+        imageUrl: this.bannerList.length > 0 ? this.bannerList[0].img : ''
+      }
+    },
+    /**
+     * 分享到微信朋友圈
+     */
+    onShareTimeline() {
+      return {
+        title: '巴黎长颈鹿 - 精彩推荐',
+        query: '',
+        imageUrl: this.bannerList.length > 0 ? this.bannerList[0].img : ''
+      }
     }
   }
 }
